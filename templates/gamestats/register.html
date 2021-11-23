@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+
+
+<html lang="en">
+	<head>
+		<meta  name="viewport"  content="width=device-width, initial-scale=1, shrink-tofit=no">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+				
+		<!--<link rel="stylesheet"  href="{% static "css/bootstrap.min.css" %}"> -->
+		
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+		<link href='https://fonts.googleapis.com/css?family=Black Ops One' rel='stylesheet'>
+
+		
+		<!--<link rel="stylesheet" href="{% static 'css/login.css'%} ">-->
+		
+		
+		<script src = "https://d3js.org/d3.v4.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"> </script>
+    
+		<title> GameBrain::Register </title>	
+
+		<style>
+    	body {
+    		font-family: 'Black Ops One';font-size: 22px;
+		}
+    </style>
+
+
+
+	</head>
+	
+	<body>
+		
+		<main>
+			
+		
+		<div class="px-4 py-5 my-5 text-center">
+			
+			
+			{%if registered%}
+				<h1 class="display-5 fw-bold">Thank you for registering!</h1>
+				<hr/>
+				<a href="{% url 'login' %}">Home</a>
+			{% else %}
+		
+			
+			<img class="d-block mx-auto mb-4" src="{% static 'images/brain.png' %}" alt="" width="200" height="100">
+
+			<div class="row">
+			<div class="col-lg-6 mx-auto">
+				<div class="card">
+					<h1 class="card-title fw-bold">Registration Form</h5>
+					<div class="card-body">
+						
+				<form id="user_form" method="post" action="{% url 'register' %} " enctype="multipart/form-data">
+					{% csrf_token %}
+				
+					<div class="input-group form-outline mb-4">
+
+						<div class="input-group-prepend">
+							<div class="input-group-text"><span class="bi-person-fill"></span></div>
+						</div>
+
+						<input name="username" type="text" id="username" class="form-control" placeholder="Username" required=true/>
+						
+					</div>
+					
+					<div class="input-group form-outline mb-4">
+
+						<div class="input-group-prepend">
+          			<div class="input-group-text"><span class="bi-lock-fill"></span></div>
+        		</div>
+						
+						<input name="password" type="password" id="password" class="form-control" placeholder="Password" required=true/>
+					</div>
+				
+				
+				<div class="d-grid gap-8 d-sm-flex justify-content-sm-center">
+					<input type="submit" class="btn btn-outline-dark btn-block"	name="submit" value="Register" />
+					<br/>
+
+					<input type="reset" class="btn btn-outline-dark btn-block" value="Clear" name="clear" />	
+				</div>
+				
+			</form>
+
+				<a class="btn btn-outline-dark btn-block" href="{% url 'login' %}">Login</a>
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+
+
+		{% endif %}
+		
+		</main>
+
+		
+
+<!--
+
+
+{% block content_block %}
+
+	{% if registered %}
+		Thank you for registering!
+		<a href="{% url 'index' %}">Home</a>
+	{% else %}	
+		Register <br/>
+		
+		<form id="user_form" method="post" action="{% url 'register' %}" enctype="multipart/form-data">
+			{% csrf_token %}
+			
+			{{ user_form.as_p }}
+			<input type="submit" name="submit" value="Register" />
+			
+		</form>
+		
+		
+		<div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+      <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+          <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
+          <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	
+	{% endif %}
+
+
+	
+{% endblock %}-->
+  
+  
+    
+  
+		<!--<script src="{% static "js/jquery.min.js" %}"></script>
+		<script src="{% static "js/popper.min.js" %}"></script>
+		<script src="{% static "js/bootstrap.min.js" %}"></script>-->
+		
+		
+		
+		<!--<script  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+		<script  src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/ 1.12.9/umd/popper.min.js"></script>
+		<script  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/ bootstrap.min.js"></script>-->
+		
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      		
+		
+	</body>
+	
+	
+	
+	
+	
+</html>
+
+
+
